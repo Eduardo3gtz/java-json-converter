@@ -1,0 +1,30 @@
+{
+  "department": "Scientometrics",
+  "reportDate": "2025-09-17",
+  "publications": [
+    {
+      "author": "Manuel Gutierrez.",
+      "title": "AI in Modern Research",
+      "year": 2024,
+      "published": true
+    },
+    {
+      "author": "Carlos Generals.",
+      "title": "Data Integration Patterns",
+      "year": 2025,
+      "published": false
+    },
+    {
+      "author": "Irlanda Barrera.",
+      "title": "Advanced Java Techniques",
+      "year": 2023,
+      "published": true
+    },
+    {
+      "author": "Dr. Eduardo",
+      "title": "Advanced Java Techniques",
+      "year": 2020,
+      "published": true
+    }
+  ]
+}
