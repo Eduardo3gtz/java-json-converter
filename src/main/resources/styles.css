@@ -1,0 +1,39 @@
+/* --- Estilo General de la Ventana --- */
+.root {
+    -fx-background-color: #2B2B2B; /* Fondo oscuro */
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-padding: 25px;
+}
+
+/* --- Estilo para las Etiquetas de Instrucciones --- */
+.label {
+    -fx-text-fill: #BBBBBB; /* Texto gris claro */
+    -fx-font-size: 14px;
+}
+
+/* --- Estilo para la Etiqueta de Estado --- */
+#statusLabel {
+    -fx-font-size: 12px;
+    -fx-text-fill: #888888; /* Texto más tenue */
+}
+
+/* --- Estilo para los Botones --- */
+.button {
+    -fx-background-color: #007ACC; /* Azul moderno */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px; /* Esquinas redondeadas */
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+.button:hover {
+    -fx-background-color: #005A9E; /* Azul más oscuro */
+}
+
+/* Estilo para el botón cuando está presionado */
+.button:pressed {
+    -fx-background-color: #003D6D;
+}

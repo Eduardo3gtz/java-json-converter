@@ -6,38 +6,28 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-/**
- * This class is responsible for writing data to a CSV file.
- * It uses the OpenCSV library to handle the CSV formatting.
- */
 public class CsvWriter {
 
-    /**
-     * Writes data extracted from a JSON object into a CSV file.
-     *
-     * @param filePath The path where the CSV file will be saved.
-     * @param data The Map object containing the data (originally from JSON).
-     * @throws IOException If an error occurs during the file writing process.
-     */
     @SuppressWarnings("unchecked")
     public void writeCsvFile(String filePath, Map<?, ?> data) throws IOException {
-        // This assumes the JSON has a key "publications" which is a list of objects.
-        // We need to cast it to the correct type to work with it.
-        List<Map<String, Object>> publications = (List<Map<String, Object>>) data.get("publications");
+        List<Map<String, Object>> prestamos = (List<Map<String, Object>>) data.get("prestamos");
+
+        if (prestamos == null) {
+            throw new IOException("The JSON file does not contain a 'prestamos' list.");
+        }
 
         try (CSVWriter writer = new CSVWriter(new FileWriter(filePath))) {
-            // 1. Write the header row for the CSV
-            String[] header = {"author", "title", "year", "published"};
+            // CAMBIO 1: La cabecera ahora dice "ano"
+            String[] header = {"socio", "titulo", "ano", "devuelto"};
             writer.writeNext(header);
 
-            // 2. Write each publication as a new row in the CSV
-            for (Map<String, Object> pub : publications) {
+            for (Map<String, Object> prestamo : prestamos) {
                 String[] row = {
-                        String.valueOf(pub.get("author")),
-                        String.valueOf(pub.get("title")),
-                        // JSON numbers are often read as Double, so we convert them to a clean String
-                        String.valueOf(pub.get("year")),
-                        String.valueOf(pub.get("published"))
+                        String.valueOf(prestamo.get("socio")),
+                        String.valueOf(prestamo.get("titulo")),
+                        // CAMBIO 2: Ahora busca la clave "ano"
+                        String.valueOf(prestamo.get("ano")),
+                        String.valueOf(prestamo.get("devuelto"))
                 };
                 writer.writeNext(row);
             }
